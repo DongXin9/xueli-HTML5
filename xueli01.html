@@ -2,16 +2,57 @@
 <html>
 <head>
   	<title>毕业生信息</title>
-  	<meta charset="UTF-8">
+	  <meta charset="UTF-8">
+	<style>
+		.form1{
+			width: 400px;
+		}
+		.sme{
+			width:380px;
+			height:120px;
+		}
+		.sme1{
+			width:380px;
+			height:100px;
+		}
+		.sma{
+			color:red;
+		}
+	</style>
 </head>
 <body>
 	<form id="testform" method="get" action="">
-        姓&nbsp;&nbsp;名：<input type="text" name="name1" autofocus="autofocus" />
-        学&nbsp;&nbsp;号：<input type="text" name="name1" autofocus="autofocus" />
-        手&nbsp;&nbsp;机：<input type="tel"  placeholder="输入电话" name="p"/> 
-        邮&nbsp;&nbsp;箱：<input  type="email"  name="email" placeholder="请输入邮箱"  />
+	<fieldset class="form1">
+		<h1>毕业生信息</h1>
+		<fieldset class="sme">
+			<legend class="sma">
+				学生信息
+			</legend>
+			姓&nbsp;&nbsp;名：<input type="text" name="name" autofocus="autofocus"  placeholder="请输入姓名" required/><a class="sma">&nbsp;*</a>
+			</br>
+			学&nbsp;&nbsp;号：<input type="text" name="sno"  placeholder="请输入学号" required/><a class="sma">&nbsp;*</a>
+			</br>
+			手&nbsp;&nbsp;机：<input type="tel" name="phone"  placeholder="请输入手机号" required/><a class="sma">&nbsp;*</a>
+			</br>
+			邮&nbsp;&nbsp;箱：<input  type="email"  name="email" placeholder="请输入邮箱地址"  required/><a class="sma">&nbsp;*</a>
+			</br>
+		</fieldset>
+		<fieldset class="sme1">
+			<legend class="sma">
+				录取情况
+			</legend>
+			录取学校：<input type="text" name="school" />
+			</br>
+			入学成绩：<input type="number" name="mark" />
+			</br>
+			入学时间：<input type="date" name="datedemo" /> 
+			</br>
+		</fieldset>
+		</br>
+		<input type="submit" value="提交" name="s"/>
+	</fieldset>
 	</form>
-	<br/>
-	自我介绍：<textarea name="textarea1" form="testform"></textarea>
 </body>
-</html>
+</回头ml>
+
+
