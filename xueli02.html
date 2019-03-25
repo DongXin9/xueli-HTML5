@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>历史搜索</title>
+    <meta charset="utf-8"/>
+    <style type="text/css">
+        .b1{
+            width: 150px;
+        }
+        .div0{
+            width: 400px;
+        }
+        .div1{
+            width: 400px;
+        }
+        .div2{
+            width: 320px;
+        }
+        .div3{
+            margin-right: 5px;
+            background: gray;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div0">
+        <input id="texta" type="search" autofocus="autofocus" required placeholder="请输入想查找的商品" autocomplete="on" list="searches"/>
+        <input class="b1" type="button" name="button1" onclick="saveStorage('texta')" value="搜素"/>
+    </div>
+    <div class="div1">
+        <a>最近搜索</a>
+        <button onclick="clearStorage('d1')">x</button>
+    </div>
+    <div class="div2" id="d1">
+    </div>
+</body>
+<script>
+    function saveStorage(id) {
+        var data = document.getElementById(id).value;
+        var time = new Date().getTime();
+        localStorage.setItem(time,data);
+        loadStorage('d1');
+    }
+    var d1 = document.getElementById('d1');
+    function loadStorage(id) {
+        var childs = d1.childNodes;
+        for(var i = childs.length-1; i >= 0; i--){
+            d1.removeChild(d1.lastChild);
+        }
+        for(var j = localStorage.length-2;j >= 0 ;j--){
+            var same = localStorage.length-1;
+            var key1 = localStorage.key(same);
+            var key2 = localStorage.key(j);
+                if(localStorage.getItem(key1) == localStorage.getItem(key2)){
+                    localStorage.removeItem(key1);
+                }
+            }
+        for (var i = localStorage.length-1; i >=0; i--) {
+            var n1 = document.createElement("a");
+            n1.id=i;
+            var key = localStorage.key(i);
+            
+            var value = localStorage.getItem(key);
+            n1.className="div3";
+            n1.innerHTML=value;
+            d1.appendChild(n1);
+        }
+        
+    }
+    function clearStorage(){
+        localStorage.clear();
+        d1.innerText='';
+    }
+</script>
+</html>
