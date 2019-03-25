@@ -56,13 +56,20 @@
     function loadStorage() {
         d1.innerText='';
         list.innerText='';
-        for(var j = localStorage.length-2;j >= 0 ;j--){
-            var same = localStorage.length-1;
-            var key1 = localStorage.key(same);
-            var key2 = localStorage.key(j);
-            if(localStorage.getItem(key1) == localStorage.getItem(key2)){
-                localStorage.removeItem(key2);
+        var same = localStorage.length-1;
+        var key1 = localStorage.key(same);
+        if(localStorage.getItem(key1)==""){
+            localStorage.removeItem(key1);
+            alert("请输入非空值");
+            
+        }else{
+            for(var j = localStorage.length-2;j >= 0 ;j--){
+                var key2 = localStorage.key(j);
+                if(localStorage.getItem(key1) == localStorage.getItem(key2)){
+                    localStorage.removeItem(key2);
+                }
             }
+            
         }
         for (var i = localStorage.length-1; i >=0; i--) {
             var key = localStorage.key(i);
