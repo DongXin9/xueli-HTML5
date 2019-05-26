@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>CSS3变形与图片</title>
+    <style type="text/css">
+        .container{
+            width: 310px;
+            height: 330px;
+            border: 5px solid #a32525ee;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 2px 2px 5px #a32525ee;
+
+        }
+        .container:hover{
+            border: 5px solid #e46a6e;
+            box-shadow: 5px 5px 10px #e46a6e;
+        }
+        .img1{
+            width: 310px;
+            height: 200px;
+            transition: transform 0.5s ease-in-out;
+        }
+        .div1{
+            width:310px;
+            height:220px;
+            position: absolute;
+            background-color: #000;
+            opacity: 0;
+            z-index: 999;
+        }
+        .container:hover .img1{
+            transform: scale(1.2);
+            transition: transform 0.5s ease-in-out;
+        }
+        .container:hover .div1{
+            opacity: 0.2;
+        }
+        .div2{
+            width: 310px;
+            height: 300px;
+            position: absolute;
+            overflow: hidden;
+            top: 180px;
+            z-index: 999;
+            transition: transform 0.5s ease-in-out;
+        }
+        .div21{
+            width: 40px;
+            height: 20px;
+            background: #e46a6e;
+            font-size: 15px;
+            text-align: center;
+            color: #fff;
+        }
+        .div22{
+            width:280px;
+            height: 300px;
+            padding-left: 15px;
+            padding-right: 15px;
+            background: #fff;
+        }
+        .div221 div{
+            width: 295px; 
+            height:40px;
+            font-size: 20px; 
+            line-height:40px;
+        }
+        .div222{
+            height: 60px;
+            opacity: 0;
+            background: #fff;
+        }
+        .container:hover .div2{
+            transform: translateY(-100px);
+            transition: transform 0.5s ease-in-out;
+        }
+        .container:hover .div222{
+            animation:  mymove 0.5s 0.25s;
+            animation-fill-mode: forwards;
+        }
+        @keyframes mymove{
+            0% {
+                opacity: 0;
+            } 
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .div3{
+            width:270px;
+            height: 20px;
+            padding-right: 15px;
+            padding-left: 15px;
+            line-height: 20px;
+            position: absolute;
+            bottom: 0px;
+            font-size: 10px;
+            color:#000;
+            background: #fff;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="div1"></div>
+        <img class="img1" src="魏大勋.gif"/>
+        <div class="div2">
+            <div class="div21">照片</div>
+            <div class="div22">
+                <div class="div221">
+                    <div>魏大勋</div>
+                    <div style="color: #e46a6e">WeiDaXun</div>
+                </div>
+                <div class="div222">
+                    <a>魏大勋，1989年4月12日出生于吉林省，中国内地影视男演员，毕业于中央戏剧学院2007级表演本科班。</a>
+                </div>
+            </div>
+        </div>
+        <div class="div3">世界第一小可爱</div>
+    </div>
+</body>
+</html>    
